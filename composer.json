@@ -17,9 +17,12 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "laravel-zero/framework": "^8.8"
+        "illuminate/database": "^8.40",
+        "laravel-zero/framework": "^8.8",
+        "nunomaduro/termwind": "^1.4"
     },
     "require-dev": {
+        "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.3",
         "pestphp/pest": "^1.3"
     },
@@ -30,7 +33,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Database\\Factories\\": "database/factories/"
         }
     },
     "config": {

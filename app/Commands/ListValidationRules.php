@@ -2,8 +2,11 @@
 
 namespace App\Commands;
 
+use App\Rule;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\Facades\View;
 use LaravelZero\Framework\Commands\Command;
+use function Termwind\{render};
 
 class ListValidationRules extends Command
 {
@@ -12,7 +15,7 @@ class ListValidationRules extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'validation:list';
 
     /**
      * The description of the command.
@@ -28,7 +31,13 @@ class ListValidationRules extends Command
      */
     public function handle()
     {
-        //
+        $rows = "";
+
+        foreach (Rule::all() as $rule) {
+            $rows .= "<tr>{$rule->name}</tr>";
+        };
+
+        render("<table><thead><tr><th colspan='3'>Available Validation Rules</th></tr></thead><tbody><tr><td>foo</td><td>bazz</td></tr></tbody></table>");
     }
 
     /**
